@@ -1,0 +1,49 @@
+---
+aliases:
+  - &rootuser      root
+  - &rootpassword  root
+  - &writeuser     babyry
+  - &writepassword ""
+  - &readuser      babyry_r
+  - &readpassword  ""
+  - &writeattrs
+    AutoCommit: 0
+    RaiseError: 1
+    ShowErrorStatement: 1
+    PrintWarn: 0
+    PrintError: 0
+    mysql_enable_utf8: 0
+  - &readattrs
+    AutoCommit: 1
+    RaiseError: 1
+    ShowErrorStatement: 1
+    PrintWarn: 0
+    PrintError: 0
+    mysql_enable_utf8: 0
+  - &queueattrs
+    AutoCommit: 1
+    RaiseError: 1
+    ShowErrorStatement: 1
+    PrintWarn: 0
+    PrintError: 0
+    mysql_enable_utf8: 0
+  - &seqattrs
+    AutoCommit: 1
+    RaiseError: 1
+    ShowErrorStatement: 1
+    PrintWarn: 0
+    PrintError: 0
+    mysql_enable_utf8: 0
+
+connect_info:
+  USER_W:
+    dsn: dbi:mysql:dbname=babyry_main;host=localhost;mysql_read_default_file=/etc/my.cnf
+    attrs:    *writeattrs
+    user:     *writeuser
+    password: *writepassword
+  USER_R:
+    dsn: dbi:mysql:dbname=babyry_main;host=localhost;mysql_read_default_file=/etc/my.cnf
+    attrs:    *readattrs
+    user:     *readuser
+    password: *readpassword
+

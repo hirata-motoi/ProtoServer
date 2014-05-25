@@ -10,6 +10,8 @@ ProtoServerをcloneした後に、セットアップスクリプトを実行す�
 git clone git@github.com:hirata-motoi/ProtoServer.git Component
 cd Component
 sh script/setup Component
+cpanm --installdeps .
+perl script/component-server -p 5000
 ```
 
 ## [grunt](http://gruntjs.com/)

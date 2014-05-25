@@ -7,7 +7,7 @@ use Test::mysqld;
 
 use Test::ProtoServer;
 
-our $MY_CNF    = $ENV{BABYRY_MY_CNF} || Test::ProtoServer->base_dir . '/my.cnf';
+our $MY_CNF    = $ENV{PROTOSERVER_MY_CNF} || Test::ProtoServer->base_dir . '/my.cnf';
 our $JSON_FILE = File::Spec->catfile(File::Spec->tmpdir, 'temperance_mysqld.json');
 our $SKIP_DROP_DB_MAP = {
     information_schema => 1,

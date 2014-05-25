@@ -9,7 +9,7 @@ use parent qw/ProtoServer::Service::Base/;
 sub set {
     my ($self, $user_id) = @_;
 
-    my $teng = $self->teng('BABYRY_MAIN_W');
+    my $teng = $self->teng('PROTOSERVER_MAIN_W');
     $teng->txn_begin;
     my $session_id = $self->model('Session')->set($teng, {user_id => $user_id});
     $teng->txn_commit;
@@ -19,7 +19,7 @@ sub set {
 sub get {
     my ($self, $session_id) = @_;
 
-    my $teng = $self->teng('BABYRY_MAIN_R');
+    my $teng = $self->teng('PROTOSERVER_MAIN_R');
     return $self->model('Session')->get($teng, $session_id);
 }
 

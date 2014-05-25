@@ -20,7 +20,7 @@ sub setup {
             }
         }
     }
-    print $self->as_string if $ENV{BABYRY_DEBUG};
+    print $self->as_string if $ENV{PROTOSERVER_DEBUG};
     return $self;
 }
 

@@ -19,7 +19,7 @@ sub base_dir($) {
     }
 }
 
-sub debug { $ENV{BABYRY_DEBUG} }
+sub debug { $ENV{PROTOSERVER_DEBUG} }
 sub diag  { chomp $_[1]; print STDERR "# [diag] $_[1]\n" if $_[0]->debug }
 
 sub module_name {

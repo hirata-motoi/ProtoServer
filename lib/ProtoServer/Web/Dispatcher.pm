@@ -31,7 +31,7 @@ my $router = ProtoServer::Web::Router->new;
             }
         }
     }
-    print $router->as_string if $ENV{BABYRY_DEBUG};
+    print $router->as_string if $ENV{PROTOSERVER_DEBUG};
 }
 
 { # for access log
@@ -96,7 +96,7 @@ sub _filter {
             eval "require $filter_class" or die "failed to load filter class: $filter_class";
 
             $res = $filter_class->$action($c, $p, $args);
-            debugf("processed the filter: %s::%s", $filter_class, $action) if $ENV{BABYRY_DEBUG};
+            debugf("processed the filter: %s::%s", $filter_class, $action) if $ENV{PROTOSERVER_DEBUG};
         } elsif ( $filter eq 'validator' ) {
             my $validator_class =  $controller_class;
             $validator_class    =~ s/Web::C/Validator/;
@@ -106,7 +106,7 @@ sub _filter {
             $res = $validator_class->validate($c, $p, $args);
         } else {
             $res = $controller_class->$filter($c, $p, $args);
-            debugf("processed the filter: %s::%s", $controller_class, $filter) if $ENV{BABYRY_DEBUG};
+            debugf("processed the filter: %s::%s", $controller_class, $filter) if $ENV{PROTOSERVER_DEBUG};
         }
 
         my $res_type = ref $res eq 'Amon2::Web::Response'  ? FILTER_RESULT_RESPONSE  :

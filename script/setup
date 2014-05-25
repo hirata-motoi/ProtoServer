@@ -14,31 +14,27 @@ small_name=`echo $name | tr "A-Z" "a-z"`
 org_name="ProtoServer"
 org_capital_name=`echo $org_name | tr "A-Z" "a-z"`
 
-echo $name
+echo "start to setup "$name"..."
 
 for f in `find . -name script -prune -o -type f -print`
 do
     sed -i "" -e "s/$org_name/$name/g" $f
     sed -i "" -e "s/$org_capital_name/$capital_name/g" $f
 done
-sed -i -e "s/$org_name/$name/g" script/protoserver
+sed -i "" -e "s/$org_name/$name/g" script/protoserver
 
 
 for dir in `find . -name $org_name`
 do
-    echo "move from : "$dir
     moved_dir=`echo $dir | sed -e "s/$org_name/$name/"`
-    echo "move to : "$moved_dir
     mv $dir $moved_dir
 done
 
 for file in `find . -name $org_name.pm`
 do
-    echo "move file from : "$file
     moved_file=`echo $file | sed -e "s/$org_name/$name/"`
-    echo "move file to : "$moved_file
     mv $file $moved_file
 done
 mv script/protoserver script/$small_name"-server"
 
-rm .git
+rm -rf .git

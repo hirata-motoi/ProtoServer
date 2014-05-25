@@ -16,7 +16,6 @@ MYMETA.yml
 /_build/
 /local/
 /.carton/
-config/db/local.conf
 service/*/supervise
 service/*/env/*
 service/*/log/main

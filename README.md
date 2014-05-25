@@ -1,6 +1,16 @@
-# ProtoServerServer
+# ProtoServer
 
 ---
+## setup
+
+ProtoServerをcloneした後に、セットアップスクリプトを実行する。
+セットアップスクリプト内では、ファイル名、ディレクトリ名、各ファイル内で使われている変数名の変更、.gitの削除を行う。
+
+```
+git clone git@github.com:hirata-motoi/ProtoServer.git Component
+cd Component
+sh script/setup Component
+```
 
 ## [grunt](http://gruntjs.com/)
 

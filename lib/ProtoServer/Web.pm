@@ -7,7 +7,6 @@ use File::Spec;
 use Log::Minimal;
 use Carp;
 use ProtoServer::Web::Root;
-use ProtoServer::Config;
 
 use Data::Dumper;
 

@@ -6,7 +6,6 @@ use Log::Minimal;
 use parent qw/ProtoServer/;
 
 use ProtoServer::Logic::Session;
-use ProtoServer::Logic::Register;
 
 sub certify {
     my ($self, $session_id) = @_;
@@ -30,12 +29,6 @@ sub update_session {
     my $session_id = ProtoServer::Logic::Session->new->set($user_id);
 
     return $session_id;
-}
-
-sub is_verified {
-    my ($self, $user_id) = @_;
-
-    return ProtoServer::Logic::Register->new->is_verified($user_id);
 }
 
 1;
